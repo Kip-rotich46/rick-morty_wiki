@@ -1,11 +1,27 @@
-import React from 'react';
+import React from "react";
+import Gender from '../Filters/Category/Gender';
+import Status from '../Filters/Category/Status';
+import Species from '../Filters/Category/Species';
 
 const Filters = () => {
   return (
-    <div>
-        Filters      
+    <div className="col-3">
+      <div className="text-center fs-4 mb-2">Filters</div>
+      <div
+        style={{ cursor: "pointer" }}
+        className="text-center text-primary text-decoration-underline mb-4"
+      >
+        Clear Filters
+      </div>
+
+      <div className="accordion" id="accordionExample">
+        <Status />
+        <Species />      
+        <Gender />       
+        
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Filters;
