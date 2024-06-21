@@ -19,6 +19,11 @@ const Pagination = ({ pageNumber, info, setPageNumber }) => {
     <>
       <style jsx>
         {`
+          .x:checked + label {
+            background-color: #0b5ed7;
+            color: white;
+          }
+
           @media (max-width: 768px) {
             .pagination {
               font-size: 12px;
@@ -43,8 +48,8 @@ const Pagination = ({ pageNumber, info, setPageNumber }) => {
         nextLabel="Next"
         forcePage={pageNumber === 1 ? 0 : pageNumber - 1}
         previousLabel="Prev"
-        previousclassNameName="btn  fs-5 prev"
-        nextclassNameName="btn  fs-5 next"
+        previousclassNameName="btn  x fs-5 prev"
+        nextclassNameName="btn x fs-5 next"
         activeclassNameName="active"
         marginPagesDisplayed={width < 576 ? 1 : 2}
         pageRangeDisplayed={width < 576 ? 1 : 2}

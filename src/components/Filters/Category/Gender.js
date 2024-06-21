@@ -1,6 +1,9 @@
 import React from "react";
+import FilterBtn from "../FilterBtn";
 
 const Gender = () => {
+  let genders = ['female', 'male', 'genderless', 'unknown']
+
   return (
     <div class="accordion-item">
       <h2 class="accordion-header">
@@ -21,14 +24,9 @@ const Gender = () => {
         data-bs-parent="#accordionExample"
       >
         <div class="accordion-body">
-          <strong>This is the first item's accordion body.</strong> It is shown
-          by default, until the collapse plugin adds the appropriate classes
-          that we use to style each element. These classes control the overall
-          appearance, as well as the showing and hiding via CSS transitions. You
-          can modify any of this with custom CSS or overriding our default
-          variables. It's also worth noting that just about any HTML can go
-          within the <code>.accordion-body</code>, though the transition does
-          limit overflow.
+          {genders.map((items, index ) =>(
+            <FilterBtn key={index} name='gender' index={index} items={items}/>
+          ))}
         </div>
       </div>
     </div>
