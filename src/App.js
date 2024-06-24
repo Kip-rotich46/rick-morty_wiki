@@ -7,15 +7,41 @@ import Cards from "./components/Cards/Cards";
 import { useEffect, useState } from "react";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
+import Navbar from "./components/Navbar/Navbar";
+import Episodes from './Pages/Episodes';
+import  Location from './Pages/Location'
+
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [pageNumber, setPageNumber] = useState(1);
+  return (
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/episodes" element={<Episodes />} />
+        <Route path="/location" element={<Location />} />
+
+      </Routes>
+    </Router>
+  );
+}
+
+const Home = () => {
+  let [pageNumber, setPageNumber] = useState(1);
   const [fetchedData, updateFetchedData] = useState([]);
   const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("");
+  const [gender, setGender] = useState("");
+  const [species, setSpecies] = useState("");
 
   const { info, results } = fetchedData;
 
-  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
+  const api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}&status=${status}&gender=${gender}&species=${species}`; // API URL
 
   useEffect(() => {
     (async function () {
@@ -27,14 +53,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-center ubuntu my-4 fw-bold ">
-        Rick & Morty <span className="text-primary">Wiki</span>
-      </h1>
       <Search setSearch={setSearch} setPageNumber={setPageNumber} />
 
       <div className="container">
         <div className="row">
-          <Filters />
+          <Filters
+            setSpecies={setSpecies}
+            setGender={setGender}
+            setStatus={setStatus}
+            setPageNumber={setPageNumber}
+          />
 
           <div className="col-8">
             <div className="row">
@@ -51,6 +79,6 @@ function App() {
       />
     </div>
   );
-}
+};
 
 export default App;
