@@ -1,9 +1,10 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+import '../../App.css';
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
       <div class="container">
 
         <Link to='/' className="fs-3 ubuntu fw-bold  navbar-brand">
@@ -35,12 +36,12 @@ const Navbar = () => {
           <i class='fas fa-bars open fw-bold text-dark'></i>
           <i class='fas fa-times close fw-bold text-dark'></i>
 
-          //3:20:23
+          
         </button>
 
         <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div className="navbar-nav fs-6">
-            <NavLink to="/" className="nav-link active" >
+            <NavLink activeClassName='active' to="/" className="nav-link active" >
               Characters
             </NavLink> 
             <NavLink to="/episodes"className="nav-link" >

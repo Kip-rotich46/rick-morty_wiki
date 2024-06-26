@@ -14,7 +14,7 @@ const Filters = ({ setPageNumber, setStatus, setGender, setSpecies }) => {
   }
 
   return (
-    <div className="col-3">
+    <div className="col-lg-3">
       <div className="text-center fs-4 mb-2">Filters</div>
       <div
         onClick={clear}

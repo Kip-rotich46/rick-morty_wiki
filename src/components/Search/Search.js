@@ -1,22 +1,25 @@
 import React from "react";
 import styles from "./Search.module.scss";
 
-const Search = ({ setSearch, setPageNumber }) => {
+const Search = ({ setSearch, updatePageNumber }) => {
+  let searchBtn = (e) => {
+    e.preventDefault();
+  };
   return (
-    <form className="d-flex justify-content-center mb-4 gap-4">
+    <form
+      className={`${styles.search} d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-5`}
+    >
       <input
         onChange={(e) => {
-          setPageNumber(1);
+          updatePageNumber(1);
           setSearch(e.target.value);
         }}
-        type="search"
-        placeholder="Search for Characters"
+        placeholder="Search for characters"
         className={styles.input}
+        type="text"
       />
       <button
-        onClick={(e) => {
-          e.preventDefault();
-        }}
+        onClick={searchBtn}
         className={`${styles.btn} btn btn-primary fs-5`}
       >
         Search

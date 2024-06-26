@@ -3,7 +3,7 @@ import "bootstrap/dist/js/bootstrap";
 
 import "./App.css";
 import Filters from "./components/Filters/Filters";
-import Cards from "./components/Cards/Cards";
+import Card from "./components/Card/Card";
 import { useEffect, useState } from "react";
 import Pagination from "./components/Pagination/Pagination";
 import Search from "./components/Search/Search";
@@ -13,6 +13,7 @@ import  Location from './Pages/Location'
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CardDetails from "./components/Card/CardDetails";
 
 function App() {
   return (
@@ -23,8 +24,15 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<CardDetails />} />
+
+
         <Route path="/episodes" element={<Episodes />} />
+        <Route path="/episodes/:id" element={<CardDetails />} />
+
         <Route path="/location" element={<Location />} />
+        <Route path="/location/:id" element={<CardDetails />} />
+
 
       </Routes>
     </Router>
@@ -53,6 +61,7 @@ const Home = () => {
 
   return (
     <div className="App">
+      <h1 className="text-center mb-4">Characters</h1>
       <Search setSearch={setSearch} setPageNumber={setPageNumber} />
 
       <div className="container">
@@ -64,9 +73,9 @@ const Home = () => {
             setPageNumber={setPageNumber}
           />
 
-          <div className="col-8">
+          <div className="col-lg-8 col-12">
             <div className="row">
-              <Cards results={results} />
+              <Card page='/' results={results} />
             </div>
           </div>
         </div>
