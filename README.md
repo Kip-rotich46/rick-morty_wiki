@@ -33,7 +33,7 @@ A React application that allows users to browse and filter characters, episodes,
 ## Installation
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/rick-and-morty-wiki.git
+    git clone https://github.com/Kip-rotich46/rick-and-morty-wiki.git
     cd rick-and-morty-wiki
     ```
 
