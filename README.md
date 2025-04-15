@@ -1,6 +1,4 @@
-Sure, here's a sample README file for your Rick and Morty API React application:
 
----
 
 # Rick and Morty Wiki
 
@@ -17,7 +15,7 @@ A React application that allows users to browse and filter characters, episodes,
 - [License](#license)
 
 ## Demo
-[Link to live demo](#)
+[Link to live demo](https://rick-morty-wiki-xi.vercel.app/)
 
 ## Features
 - View and search for characters, episodes, and locations.
